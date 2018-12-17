@@ -25,19 +25,29 @@ function fetchJson(url) {
       
         if (element) {
     
-            for (var i in obj) {
-                var book = document.createElement('div')
+            for (let i in obj) {
+                let book = document.createElement('div')
                 book.className = "flex-item";
                 book.id = 'book';
 
-                var front = document.createElement('div')
+                let front = document.createElement('div')
                 front.className = 'front face'
                 front.innerHTML = obj[i].titulo
 
-                var back = document.createElement('div')
+                let back = document.createElement('div')
                 back.className = 'back face center'
-                back.innerHTML = obj[i].detalle
-                           
+                let description =   document.createElement('div')
+                description.innerHTML = obj[i].titulo
+
+                 let button =   document.createElement('input')
+                 button.type = 'button'
+                 button.className = 'button'
+                 button.innerText = '<a href="'+obj[i].detalle+'"></a>'
+                 button.value = 'more'
+
+                back.appendChild(description)
+                 back.appendChild(button)
+
                 book.appendChild(front);
                 book.appendChild(back);
                 element.appendChild(book);
