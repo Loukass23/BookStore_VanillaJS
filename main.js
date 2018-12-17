@@ -31,11 +31,15 @@ function fetchJson(url) {
                 book.id = 'book';
 
                 let front = document.createElement('div')
-                front.className = 'front face'
-                front.innerHTML = obj[i].titulo
+                front.className = 'front face img-fluid  max-width: 100%'
+                front.id = 'book-img'
+
+                front.innerHTML = '<img src="'+obj[i].portada+'"></img>'
+                
+               
 
                 let back = document.createElement('div')
-                back.className = 'back face center'
+                back.className = 'back face center '
                 let description =   document.createElement('div')
                 description.innerHTML = obj[i].titulo
 

@@ -55,7 +55,7 @@
     
     color: white;
     text-align: center;
-    background-color: #aaa;
+    background-color:tomato;
   }
   .button {
     background-color: #4CAF50;
@@ -68,4 +68,8 @@
     display: inline-block;
    
     cursor: pointer;
+  }
+.face img {
+    max-width:100%;
+  max-height:100%;
   }
