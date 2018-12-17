@@ -1,4 +1,5 @@
 const url = 'https://api.myjson.com/bins/udbm5'
+let books = []
 
 fetchJson(url);
 
@@ -12,6 +13,7 @@ function fetchJson(url) {
     }).then(function(json) {
   
           console.log(json.books);
+          books = json.books;
           buildTable3('books', json.books);
      
       })
@@ -19,11 +21,29 @@ function fetchJson(url) {
       
     }
 
+   
+    function searchBook() {
+        let input = document.getElementById("myInput");
+        let filter = input.value.toUpperCase();
+        if (filter){
+        console.log(filter)
+        
+        let searchedBooks = books.filter(book => book.titulo.toUpperCase().includes(filter))
+        console.log( searchedBooks)
+        buildTable3('books', searchedBooks ) 
+        }
+        else {buildTable3('books', books ) 
+    }
+        
+    
+    }
+
     function buildTable3(el, obj) {
           
         element = document.getElementById(el);
       
         if (element) {
+            element.innerHTML='';
     
             for (let i in obj) {
                 let book = document.createElement('div')
